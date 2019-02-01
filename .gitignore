@@ -1,0 +1,3 @@
+.idea
+test.py
+jobs/__pycache__/*.pyc

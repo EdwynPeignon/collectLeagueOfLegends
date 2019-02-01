@@ -1,0 +1,34 @@
+# API key for league of legends
+api_key: "RGAPI-xxxxxxxxxxx"
+
+# Wich seasons you would like to collect after season 8 is recommended. The input should be an integer.
+# if you choose a season where there were no match timeline and you put to true the match_timeline it won't
+# collect your data
+since_season: 8
+
+# data you want to collect. Fill True or False
+match_info: True
+match_timeline: True
+
+# Do you have a player name you would like to begin with and his platform
+players:
+  1: ["Winter kay","EUW1"]
+  2: ["giantpunch", "EUW1"]
+  3: ["vickybonbon", "EUW1"]
+  4: ["DIO75", "EUW1"]
+
+# Where do you like to save the data
+path_storage: "/Volumes/League/test/"
+
+# Index in elasticsearch? True or False
+index_elastic: True
+
+# Only if you set True to index in elasticsearch
+
+# You shouldn't have to change it
+elastic: "http://localhost:9200"
+
+# property of your elastic index
+index_name: "league_of_legends"
+type_name: "master_data"
+
