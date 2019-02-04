@@ -36,16 +36,24 @@ class APILeagueOfLegends:
         index = 0
         bool_season = True
         matches = list()
-
+        count = 0
         while bool_season:
             response = self.summoner_match_history(account_id, beginIndex=index, endIndex=(index + 100))
-            for match in response['matches']:
-                if match['season'] >= self.since_season:
-                    matches.append((match["gameId"], match['platformId']))
-                else:
+            try:
+                if response.get('matches') is None:
                     bool_season = False
-            index += 100
-
+                if not response.get('matches'):
+                    bool_season = False
+                for match in response['matches']:
+                    count += 1
+                    if match['season'] >= self.since_season:
+                        matches.append((match["gameId"], match['platformId']))
+                    else:
+                        bool_season = False
+                index += 100
+            except:
+                print('Fucking Error : {}'.format(response))
+                bool_season = False
         return matches
 
     @staticmethod

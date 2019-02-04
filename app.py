@@ -21,7 +21,6 @@ def collect_data_player(api, list_players, name, platform, yp):
     if matches is None:
         print('No matches for this player maybe he changes his name.')
         return list_players
-
     if yp.index_elastic:
         matches = check_matches_elastic(matches)
 
